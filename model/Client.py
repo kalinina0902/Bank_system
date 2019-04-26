@@ -1,1 +1,4 @@
-class Card(object):
+class Client(object):
+
+    def __init__(self):
+        
