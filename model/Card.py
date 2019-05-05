@@ -1,3 +1,5 @@
-class Card(object):
+class Card():
 
     def __init__(self):
+        self.number
+        self.type
