@@ -1,16 +1,17 @@
 from peewee import *
 from Bank_system.model.base_model import BaseModel
 from Bank_system.model.client import Client
-from Bank_system.model.card import Card
+from Bank_system.model.offer import Offer
 
 
 class Account(BaseModel):
 
-    type = IntegerField()
-    number = IntegerField(primary_key=True, unique=True)
+
+    ID_account = IntegerField(primary_key=True, unique=True)
+    sum = DoubleField(null=False)
+    ID_client = ForeignKeyField(Client, backref="account")
+    ID_offer = ForeignKeyField(Offer, on_delete=None)
     date_open = DateField()
     date_close = DateField()
     percent = DoubleField(null= False)
-    count_money_now = DoubleField(null=False)
-    id_client = ForeignKeyField(Client, backref="account")
-    number_card = ForeignKeyField(Card,on_delete=None)
+    type = IntegerField(null= False)

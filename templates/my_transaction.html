@@ -27,7 +27,7 @@
 	</tr>
 	<tr><td align="center"><h2>Id</h2></td><td align="center"><h2>Счёт списания</h2></td><td align="center"><h2>Счёт зачисления</h2></td><td align="center"><h2>Сумма</h2></td><td align="center"><h2>Дата</h2></td></tr>
         {%for it in table%}
-        <tr><td align="center"><h2>{{it.ID_}}</h2></td><td align="center"><h2>{{it.ID_account_from}}</h2></td><td align="center"><h2>{{it.ID_account_to}}</h2></td><td align="center"><h2>{{it.sum}}</h2></td><td align="center"><h2>{{it.date}}</h2></td></tr>
+        <tr><td align="center"><h2>{{it.ID_transaction}}</h2></td><td align="center"><h2>{{it.ID_account_from}}</h2></td><td align="center"><h2>{{it.ID_account_to}}</h2></td><td align="center"><h2>{{it.sum}}</h2></td><td align="center"><h2>{{it.date}}</h2></td></tr>
         {% endfor %}
 	</form></tbody></table>
 </div>
