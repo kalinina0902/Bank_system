@@ -2,17 +2,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href={{url_for('static', filename='style.css')}}>>
 <title>Online_bank.ru :: Транзакции</title>
 </head>
 <body>
 <div class="header">
 	<div class="logo">
-		<a href="main.html" title="На главную"> Online_bank </a>
+		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href="registration.html">Регистрация</a></li>
-		<li><a href="authorization.html"> Вход </a></li>
+		<li><a href={{url_for('exit')}}>Выход</a></li>
 	</ul>
 </div>
 
@@ -33,7 +32,7 @@
 </div>
 
 
-<br><h2><div class="inf"><a href="client.html"> Личный кабинет </a></div></h2>
+<br><h2><div class="inf"><a href={{url_for('client'}}> Личный кабинет </a></div></h2>
 
 <div class="footer">
 	<br><div class="left"> О Компании </div>

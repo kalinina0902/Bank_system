@@ -2,7 +2,8 @@ from Bank_system.model.client import Client
 
 class AuthorizationService:
 
-    def log_in(self, login,password):
+    @staticmethod
+    def log_in(login,password):
 
         my_client = Client.select().where(Client.login == login, Client.password == password).get()
         if(my_client):

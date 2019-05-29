@@ -5,9 +5,10 @@ from datetime import *
 
 class AddService:
 
-    def registration_client (name, surname, patronymic, passport_id, passport_number, date_of_birth,login, password):
+    @staticmethod
+    def registration_client(name, surname, patronymic, passport_id, passport_seria, date_of_birth, login, password):
         s = "Ошибка: "
-        if (Client.select().where(Client.passport_id==passport_id, Client.passport_number==passport_number).get()):
+        if (Client.select().where(Client.passport_id==passport_id, Client.passport_seria==passport_seria).get()):
 
             s += "Серия и номер паспорта не валидны"
 
@@ -17,7 +18,7 @@ class AddService:
 
         else:
 
-            my_client = Client(name,surname,patronymic, passport_id,passport_number, date_of_birth)
+            my_client = Client(name,surname,patronymic, passport_id,passport_seria, date_of_birth)
             my_client.save()
             s = "Успешная регистрация"
 

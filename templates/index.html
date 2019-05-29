@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
 <title>Online_bank : Главная страница</title>
 </head>
 <body>
@@ -11,8 +11,8 @@
 		<a href="main.html" title="На главную"> Online_bank </a>
 	</div>
 	<ul class="menu">
-		<li><a href="registration.html">Регистрация</a></li>
-		<li><a href="authorization.html"> Вход </a></li>
+		<li><a href={{url_for('registration')}}>Регистрация</a></li>
+		<li><a href={{url_for('authorization')}}>Вход </a></li>
 	</ul>
 </div>
 
