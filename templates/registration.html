@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<title>Online_bank : Регистрация</title>
+</head>
+<body>
+<div class="header">
+	<div class="logo">
+		<a href="main.html" title="На главную"> Online_bank </a>
+	</div>
+	<ul class="menu">
+		<li><a href="registration.html">Регистрация</a></li>
+		<li><a href="authorization.html"> Вход </a></li>
+	</ul>
+</div>
+
+<div class="content">
+	<table>
+	<tbody>
+	<form method='post' class='reg-form' action="registration.html">
+		<tr>
+		<th colspan = "2" align="center"><h1> Регистрация <h1></th>
+		</tr>
+		<tr><td><div class='form-row'><label for='form_sname'>Фамилия</label><br></div></td>
+			<td align="right"><div class='form-row'><input type='text' id='form_sname' name='second_name' placeholder="Иванов"></div></td>		
+		</tr>
+		<tr><td><div class='form-row'><label for='form_fname'>Имя</label><br></td>
+			<td align="right" ><div class="form-row"><input type='text' id='form_fname' name='first_name' placeholder="Иван"></div></td>
+		</tr>
+		<tr><td><div class='form-row'><label for='form_fname'>Отчество</label><br></td>
+			<td  align="right"><div class="form-row"><input type='text' id='form_pname' name='patronymics' placeholder="Иванович"></div></td>
+		</tr>		
+		<tr><td><div class='form-row'><label for='form_fname'>Номер паспорта</label><br></td>
+			<td align="right"><div class="form-row"><input type='text' id='form_npas' name='number_passport' placeholder="2012"></div></td>	
+		</tr>
+		<tr><td><div class='form-row'><label for='form_fname'>Серия паспорта</label><br></td>
+			<td align="right"><div class="form-row"><input type='text' id='form_spas' name='seria_passport' placeholder="123456"></div></td>
+		</tr>
+		<tr><td><div class='form-row'><label for='form_fname'>Дата рождения</label><br></td>
+			<td align="right"><div class="form-row"><input type="date" id='form_dateofb' name='date_of_birth' value="2016-10-24"></div></td>	
+		</tr>
+		<tr><td><div class='form-row'><label for='form_email'>Логин</label><br></td>
+			<td align="right"><div class="form-row"><input type='email' id='form_email' name='login' placeholder="login"></div></td>
+		</tr>
+		<tr><td><div class='form-row'><label for='form_fpass'>Пароль</label><br></td>
+			<td align="right"><div class="form-row"><input type='password' id='form_fpass' name='password' value="password"></div></td>
+		</tr>
+		<tr><td colspan = "2" align="center"><div class="form-row">
+			<input type="submit" value='Зарегистрироваться'></div></td>	
+		</tr>
+	</form>
+	</tbody>
+	</table>
+</div>
+
+<div class="footer">
+	<br><div class="left"> О Компании </div>
+	<br><div class="left"> Контакты +7 919 200 12 33</div>
+	<br><div class="left"> <a href= "online_bank@mail.ru" title="Почта для связи"> online_bank@mail.ru</a></div>	
+</div>
+</body>
+</html>

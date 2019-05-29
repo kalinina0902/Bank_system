@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<title>Online_bank :: Депозитный счёт</title>
+</head>
+<body>
+<div class="header">
+	<div class="logo">
+		<a href="main.html" title="На главную"> Online_bank </a>
+	</div>
+	<ul class="menu">
+		<li><a href="authorization.html"> Вход </a></li>
+	</ul>
+</div>
+<div class="content">
+	<table >
+	<tbody>
+	<form method='post' action="deposite.html">
+	<tr>
+	<td align="left"><h2>Название</h2></td><td align="right"><h2>{{account.ID_offer.name}}</h2></td>
+	</tr>
+	<tr>
+	<td align="left"><h2>Номер вклада</h2></td><td align="right"><h2>{{account.ID_account}}</h2></td>
+	</tr>
+	<tr>
+	<td align="left"><h2>Баланс</h2></td><td align="right"><h2>{{account.sum}}</h2></td>
+	</tr>
+	<tr>
+	<td align="left"><h2>Процентная ставка</h2></td><td align="right"><h2>{{account.percent}}</h2></td>
+	</tr>
+	</tr>
+	<tr><td colspan = "2" align="center"> <h2> Доступные операции: </h2></td></tr>
+    <tr><td colspan = "2" align="center"><div class="inf"> <a href="everymonthpay.html"><h2> Пополнить баланс </h2></a></div></td></tr>
+	<tr><td colspan = "2" align="center"> <div class="inf"><a href="everymonthpay.html"><h2> Закрыть вклад </h2></a></div></td></tr>
+	</tbody>
+	</form>
+	</table>
+	</div>
+<div class="footer">
+<br><div class="left"> О Компании </div>
+<br><div class="left"> Контакты +7 919 200 12 33</div>
+<br><div class="left"> <a href= "online_bank@mail.ru" title="Почта для связи"> online_bank@mail.ru</a></div>	
+</div>
+</body>
+</html>

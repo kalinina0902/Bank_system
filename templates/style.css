@@ -1,0 +1,186 @@
+body{
+	margin: 0;
+	font-family: Monotype Corsiva, Cursive;
+	margin-top: 80px;
+	font-size:10pt;
+}
+
+h1{
+	margin-top: 20px;
+	text-align: center;
+	font-size: 3em;
+	font-family: Monotype Corsiva, Cursive;
+	color: #122C5A;
+	
+}
+
+.header{
+	background-color: rgba(70,130, 180, 0.5);
+	height: 80px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	width: 100%;
+}
+
+.content table{		
+	width: 30%;
+	margin: auto; /* Выравниваем таблицу по центру окна  */
+}
+
+.maincontent table{		
+	width: 100%;
+	margin: auto; 
+}
+
+.footer{
+	background-color: rgba(70,130, 180, 0.5);
+	height: 75px;
+	position: fixed;
+	width: 100%;
+	bottom:0; 
+}
+
+.logo{
+	margin-top: 15px; 
+	margin-left: 20px;
+	float: left;
+	width: 300px;
+	font-size: 3em;
+	font-family: Monotype Corsiva, Cursive;
+	color: #122C5A;
+}
+
+.menu{
+	list-style: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 20px;
+	font-size: 2em;
+	padding-left: 0px;
+	font-family: Monotype Corsiva, Cursive;
+	float: right;
+	color: #122C5A;
+}
+
+.logo a:hover{
+	color: #FFFFFF;
+}
+.inf a:hover{
+	color: rgb(70,130, 180);;
+}
+.menu a:hover{
+	color: #FFFFFF;
+}
+
+.menu a{
+	padding: 5px 10px;
+	border-radius: 5px;
+	float: right;
+	color: #122C5A;
+}
+
+a{
+	color: #122C5A;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a:active{
+	color: #122C5A;
+	text-decoration: none;
+}
+
+.right{
+	float: right;
+}
+
+.left{
+	float: left;
+}
+
+.form-row{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	overflow: hidden;
+	font-size: 20px;
+}
+
+.form-row1{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	overflow: hidden;
+	font-size: 20px;
+}
+
+.form-row input {	
+	height: 19px;
+	line-height: 19px;
+	margin: 0px;
+	padding: 0px 5px;
+	width: 200px;
+	border: 1px solid #122C5A;
+}
+
+.form-row select {	
+	height: 22px;
+	line-height: 19px;
+	margin: 0px;
+	padding: 0px 5px;
+	width: 212px;
+	border: 1px solid #122C5A;
+}
+
+.form-row1 select {	
+	height: 22px;
+	line-height: 19px;
+	margin: 0px;
+	padding: 0px 5px;
+	width: 300px;
+	border: 1px solid #122C5A;
+}
+
+.form-row input[type=submit]{
+	text-align: center;
+	height:50px;
+	width:65%;
+	line-height: 0px;
+	background:rgba(70,130, 180, 0.5);
+	color:#122C5A;
+	font-family: Monotype Corsiva, Cursive;
+	font-size: 30px;
+	border-bottom: 1px solid #122C5A;
+	border-right: 1px solid #122C5A;
+	border-left: 1px solid #122C5A;
+	border-top: 1px solid #122C5A;
+	
+}
+
+.form-row1 input[type=submit] {	
+	text-align: center;
+	height:50px;
+	width: 50px;
+	line-height: 0px;
+	background:rgba(70,130, 180, 0.5);
+	color:#122C5A;
+	font-family: Monotype Corsiva, Cursive;
+	font-size: 30px;
+	padding-left: 0px;
+	border-bottom: 1px solid #122C5A;
+	border-right: 1px solid #122C5A;
+	border-left: 1px solid #122C5A;
+	border-top: 1px solid #122C5A;
+}
+
+.form-row input[type=submit]:hover{
+	background: #122C5A;
+	color: #FFFFFF;
+	}
+
+.form-row  input[type=submit]:active{
+	border: none;
+}

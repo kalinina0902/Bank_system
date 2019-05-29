@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<title>Online_bank : Открытие вклада</title>
+</head>
+<body>
+<div class="header">
+	<div class="logo">
+	Online_bank
+	</div>
+	<ul class="menu">
+		<li><a href="main.html">Выход</a></li>
+	</ul>
+</div>
+
+<div class="content">
+	<table>
+	<tbody>
+	<form method='post' action="add_deposit.html">
+	<tr>
+	<th colspan = "2" align="center"><h1> Открытие вклада <h1></th>
+	</tr>
+	<tr><td><div class='form-row'><label >Предложения по вкладам</label></div></td>
+	<td align="right"><div class='form-row'><select name="chooseoffer" required>
+				<option disabled selected value="null">(Не выбрано)</option>
+				{%for item in offers%}
+				<option value={{item.ID_offer}}>{{item.name}} {{item.persent}}</option>
+				{% endfor %}
+	</select></div></td>		
+	</tr>
+	<tr><td><div class='form-row'><label for='form_accountto'>Счёт списания</label></div></td>
+		<td align="right"><div class='form-row'><select name="accountfrom" required>
+                    <option disabled selected value="null">(Не выбрано)</option>
+                    {%for item in accounts%}
+                    <option value={{item.ID_account}}>{{item.ID_account}}</option>
+                    {% endfor %}
+		</select></div></td>		
+	</tr>
+	<tr><td><div class='form-row'><label >Сумма</label></td>
+		<td align="right" ><div class="form-row"><input type='text' id='sum' name='sum' placeholder="1000"></div></td>
+	</tr>
+	<tr><td colspan = "2" align="center"><div class="form-row">
+		<input type="submit" value='Открыть'></div></td>	
+	</tr>
+	</form>
+	</tbody>
+	</table>
+</div>
+
+<div class="footer">
+	<br><div class="left"> О Компании </div>
+	<br><div class="left"> Контакты +7 919 200 12 33</div>
+	<br><div class="left"> <a href= "online_bank@mail.ru" title="Почта для связи"> online_bank@mail.ru</a></div>	
+</div>	
+</body>
+</html>
