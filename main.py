@@ -17,11 +17,11 @@ def exit():
     return render_template('index.html')
 
 
-@app.route('/registration')
+@app.route('/registration' )
 def registration():
  return render_template('registration.html')
 
-@app.route('/registration')
+@app.route('/registration' , methods=['POST'])
 def registration_people():
     name = request.args['first_name']
     surname = request.args['second_name']
@@ -32,8 +32,7 @@ def registration_people():
     login = request.args['login']
     password = request.args['password']
     s = AddService.registration_client(name,surname,patronymic,passport_id,passport_seria,date_of_birth,login,password)
-    if (s == "Успешная регистрация"):
-        return render_template('authorization.html')
+    return render_template('authorization.html')
 
 
 @app.route('/authorization', methods=['GET'])
@@ -41,7 +40,7 @@ def authorization():
    return render_template('authorization.html')
 
 
-@app.route('/authorization', methods=['GET'])
+@app.route('/authorization', methods=['POST'])
 def authorization_people():
     login = request.args['login']
     password = request.args['password']

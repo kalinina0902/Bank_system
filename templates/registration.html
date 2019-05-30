@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href={{url_for('static', filename='style.css')}}>>
+<link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
 <title>Online_bank : Регистрация</title>
 </head>
 <body>
@@ -23,25 +23,25 @@
 		<th colspan = "2" align="center"><h1> Регистрация </h1></th>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_sname'>Фамилия</label><br></div></td>
-			<td align="right"><div class='form-row'><input type='text' id='form_sname' name='second_name' placeholder="Иванов"></div></td>		
+			<td align="right"><div class='form-row'><input type='text' name="second_name" placeholder="Иванов"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_fname'>Имя</label><br></div></td>
-			<td align="right" ><div class="form-row"><input type='text' id='form_fname' name='first_name' placeholder="Иван"></div></td>
+			<td align="right" ><div class="form-row"><input type='text' name="first_name" placeholder="Иван"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_fname'>Отчество</label><br></div></td>
-			<td  align="right"><div class="form-row"><input type='text' id='form_pname' name='patronymics' placeholder="Иванович"></div></td>
+			<td  align="right"><div class="form-row"><input type='text' name="patronymics" placeholder="Иванович"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_fname'>Серия паспорта</label><br></div></td>
-			<td align="right"><div class="form-row"><input type='text' id='form_npas' name='seria_passport' placeholder="2012"></div></td>
+			<td align="right"><div class="form-row"><input type='text'  name="seria_passport" placeholder="2012"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_fname'>Номер паспорта</label><br></div></td>
-			<td align="right"><div class="form-row"><input type='text' id='form_spas' name='number_passport' placeholder="123456"></div></td>
+			<td align="right"><div class="form-row"><input type='text'  name="number_passport" placeholder="123456"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_fname'>Дата рождения</label><br></div></td>
-			<td align="right"><div class="form-row"><input type="date" id='form_dateofb' name='date_of_birth' value="2016-10-24"></div></td>	
+			<td align="right"><div class="form-row"><input type="date"  name='date_of_birth' value="2016-10-24"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_email'>Логин</label><br></div></td>
-			<td align="right"><div class="form-row"><input type='email' id='form_email' name='login' placeholder="login"></div></td>
+			<td align="right"><div class="form-row"><input type='login'  name='login' placeholder="login"></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label for='form_fpass'>Пароль</label><br></div></td>
 			<td align="right"><div class="form-row"><input type='password' id='form_fpass' name='password' value="password"></div></td>
