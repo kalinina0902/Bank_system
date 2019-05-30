@@ -63,6 +63,25 @@ h1{
 	color: #122C5A;
 }
 
+.menu input[type=submit]{
+    text-align: center;
+	height:35px;
+	line-height: 0px;
+	background:rgba(70,130, 180, 0);
+	color:#122C5A;
+	font-family: Monotype Corsiva, Cursive;
+	font-size: 20pt;
+	border-bottom: 1px solid rgba(70,130, 180, 0);
+	border-right: 1px solid rgba(70,130, 180, 0);
+	border-left: 1px solid rgba(70,130, 180, 0);
+	border-top: 1px solid rgba(70,130, 180, 0);
+	outline: none;
+}
+
+.menu input[type=submit]:hover{
+	color: #FFFFFF;
+}
+
 .logo a:hover{
 	color: #FFFFFF;
 }

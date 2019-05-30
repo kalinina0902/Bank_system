@@ -1,6 +1,6 @@
 from model.client import Client
 
-class AuthorizationService:
+class FindService:
 
     @staticmethod
     def log_in(login,password):

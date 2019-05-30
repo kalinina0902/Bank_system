@@ -3,7 +3,6 @@ from model.base_model import BaseModel
 
 
 class Client(BaseModel):
-
     ID_client = IntegerField(null=False, primary_key=True)
     name = CharField(max_length=100)
     surname = CharField(max_length=100)

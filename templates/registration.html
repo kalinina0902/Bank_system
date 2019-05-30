@@ -6,53 +6,57 @@
 <title>Online_bank : Регистрация</title>
 </head>
 <body>
+<form action="/addClient" method="GET">
 <div class="header">
-		<div class="logo">
+	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Регистрация"></li>
+		<li><input type="submit" name="button" value="Вход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' class='reg-form' action={{url_for('registration_people')}}>
 		<tr>
 		<th colspan = "2" align="center"><h1> Регистрация </h1></th>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_sname'>Фамилия</label><br></div></td>
-			<td align="right"><div class='form-row'><input type='text' name="second_name" placeholder="Иванов"></div></td>
+		<tr>
+		<th colspan= '2' align = "center">{{message}}</th>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_fname'>Имя</label><br></div></td>
-			<td align="right" ><div class="form-row"><input type='text' name="first_name" placeholder="Иван"></div></td>
+		<tr><td><div class='form-row'><label>Фамилия</label></div></td>
+			<td align="right"><div class='form-row'><input type='text' id='form_sname' name='second_name' placeholder="Иванов"></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_fname'>Отчество</label><br></div></td>
-			<td  align="right"><div class="form-row"><input type='text' name="patronymics" placeholder="Иванович"></div></td>
+		<tr><td><div class='form-row'><label>Имя</label></div></td>
+			<td align="right" ><div class="form-row"><input type='text' id='form_fname' name='first_name' placeholder="Иван"></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_fname'>Серия паспорта</label><br></div></td>
-			<td align="right"><div class="form-row"><input type='text'  name="seria_passport" placeholder="2012"></div></td>
+		<tr><td><div class='form-row'><label>Отчество</label></div></td>
+			<td  align="right"><div class="form-row"><input type='text' id='form_pname' name='patronymic' placeholder="Иванович"></div></td>
+		</tr>		
+		<tr><td><div class='form-row'><label>Номер паспорта</label></div></td>
+			<td align="right"><div class="form-row"><input type='text' id='form_npas' name='passport_id' placeholder="2012"></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_fname'>Номер паспорта</label><br></div></td>
-			<td align="right"><div class="form-row"><input type='text'  name="number_passport" placeholder="123456"></div></td>
+		<tr><td><div class='form-row'><label>Серия паспорта</label></div></td>
+			<td align="right"><div class="form-row"><input type='text' id='form_spas' name='passport_seria' placeholder="123456"></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_fname'>Дата рождения</label><br></div></td>
-			<td align="right"><div class="form-row"><input type="date"  name='date_of_birth' value="2016-10-24"></div></td>
+		<tr><td><div class='form-row'><label>Дата рождения</label></div></td>
+			<td align="right"><div class="form-row"><input type="date" id='form_dateofb' name='date_of_birth' value="2016-10-24"></div></td>	
 		</tr>
-		<tr><td><div class='form-row'><label for='form_email'>Логин</label><br></div></td>
-			<td align="right"><div class="form-row"><input type='login'  name='login' placeholder="login"></div></td>
+		<tr><td><div class='form-row'><label >Логин</label></div></td>
+			<td align="right"><div class="form-row"><input type='text' id='form_email' name='login' placeholder="login"></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label for='form_fpass'>Пароль</label><br></div></td>
+		<tr><td><div class='form-row'><label>Пароль</label></div></td>
 			<td align="right"><div class="form-row"><input type='password' id='form_fpass' name='password' value="password"></div></td>
 		</tr>
 		<tr><td colspan = "2" align="center"><div class="form-row">
-			<input type="submit" value='Зарегистрироваться'></div></td>	
+			<input type="submit" name="button" value='Зарегистрироваться'></div></td>
 		</tr>
-	</form>
 	</tbody>
 	</table>
 </div>
+</form>
 
 <div class="footer">
 	<br><div class="left"> О Компании </div>

@@ -1,49 +1,49 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="style.css">
-<title>Online_bank :: Авторизация</title>
+<link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
+<title>Online_bank : Авторизация</title>
 </head>
 <body>
+
+<form action="/authorization" method="GET">
 <div class="header">
 	<div class="logo">
-		<a href="main.html" title="На главную"> Online_bank </a>
+		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('registration')}}>Регистрация</a></li>
-		<li><a href={{url_for('authorization')}}>Вход </a></li>
+		<li><input type="submit" name="button" value="Регистрация"></li>
+		<li><input type="submit" name="button" value="Вход"></li>
 	</ul>
 </div>
+
 <div class="content">
-	<table >
+	<table>
 	<tbody>
-	<form method='post' class='auth-form' action={{url_for(authorization)}}>
 	<tr>
     <th colspan = "2" align="center" > <h1> Авторизация </h1></th>
 	</tr>
-	
-		<tr><td >
-		<div class='form-row'>
-			<label for='form_email'>Логин</label></br></div></td>
-			<td align="right"><div class="form-row"><input type='email' id='form_email' name='login' placeholder="login"></div></td>
-
-		</tr>
-		<tr><td >
-		<div class='form-row'>
-    		<label for='form_fpass'>Пароль</label><br></div></td>
-    		<td align="right"><div class="form-row"><input type='password' id='form_fpass' name='password' value="password"></div></td>
-
-		</tr>
-		<tr><td colspan = "2" align="center">
-		<div class="form-row">
-			<input type="submit" value='Войти'></div></td>
-		
-		</tr>
-		</form>
-		</tbody>
-		</table>
-
-	</div>
+	<tr>
+	<th colspan= '2' align = "center">{{message}}</th>
+	</tr>
+	<tr><td >
+	<div class='form-row'>
+		<label for='form_email'>Логин</label></div></td>
+		<td align="right"><div class="form-row"><input type='text' id='form_email' name='login' placeholder="login"></div></td>
+	</tr>
+	<tr><td >
+	<div class='form-row'>
+		<label for='form_fpass'>Пароль</label></div></td>
+		<td align="right"><div class="form-row"><input type='password' id='form_fpass' name='password' value="password"></div></td>
+	</tr>
+	<tr><td colspan = "2" align="center">
+	<div class="form-row">
+		<input type="submit" name="button" value='Войти'></div></td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+</form>
 
 <div class="footer">
 	<br><div class="left"> О Компании </div>

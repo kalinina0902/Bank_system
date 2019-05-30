@@ -1,9 +1,8 @@
 from model.account import Account
 from model.transaction import Transaction
 
-class Transactionservice:
 
-
+class TransferService:
     def transfer_money_another(self, id_from_ac, id_into_ac, sum):
 
         from_ac = Account.select().where(Account.number == id_from_ac).get()

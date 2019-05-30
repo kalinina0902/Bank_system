@@ -4,8 +4,6 @@ from model.client import Client
 from model.account import Account
 
 class Transaction(BaseModel):
-
-
     ID_transaction = IntegerField(primary_key=True)
     sum = DoubleField (null=False)
     ID_client= ForeignKeyField(Client, backref="transaction")
