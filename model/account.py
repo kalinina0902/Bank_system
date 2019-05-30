@@ -1,7 +1,7 @@
 from peewee import *
-from Bank_system.model.base_model import BaseModel
-from Bank_system.model.client import Client
-from Bank_system.model.offer import Offer
+from model.base_model import BaseModel
+from model.client import Client
+from model.offer import Offer
 
 
 class Account(BaseModel):

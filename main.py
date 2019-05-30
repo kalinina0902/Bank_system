@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
-from Bank_system.model.client import *
-from Bank_system.services.add_service import AddService
-from Bank_system.services.find_service import AuthorizationService
+from model.client import *
+from services.add_service import AddService
+from services.find_service import AuthorizationService
 
 from datetime import date
 

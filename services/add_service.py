@@ -1,5 +1,5 @@
-from Bank_system.model.account import Account
-from Bank_system.model.client import Client
+from model.account import Account
+from model.client import Client
 
 from datetime import *
 

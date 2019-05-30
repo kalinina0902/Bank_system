@@ -1,5 +1,5 @@
 from peewee import *
-from Bank_system.model.base_model import BaseModel
+from model.base_model import BaseModel
 
 class Operator(BaseModel):
 

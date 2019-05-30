@@ -1,4 +1,4 @@
-from Bank_system.model.client import Client
+from model.client import Client
 
 class AuthorizationService:
 

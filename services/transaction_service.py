@@ -1,5 +1,5 @@
-from Bank_system.model.account import Account
-from Bank_system.model.transaction import Transaction
+from model.account import Account
+from model.transaction import Transaction
 
 class Transactionservice:
 
