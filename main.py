@@ -61,22 +61,22 @@ def action_client():
         return render_template('add_credit.html',id_client=client_id, accounts=debet_account, offers=offers_credit)
     elif request.args['button'] == 'Перейти в дебет':
         id_debet = request.args['debet']
-        sum = FindService.Get_sum(id_debet)
-        return render_template('debet.html', id_client=client_id, ID_account=id_debet, sum=sum)
+        sum_deb = FindService.Get_sum(id_debet)
+        return render_template('debet.html', id_client=client_id, ID_account=id_debet, sum=sum_deb)
     elif request.args['button'] == 'Перейти во вклад':
         id_deposit = request.args['deposit']
-        sum = FindService.Get_sum(id_deposit)
-        percent = FindService.Get_persent(id_deposit)
+        sum_dep = FindService.Get_sum(id_deposit)
+        percent_dep = FindService.Get_percent(id_deposit)
         offer_name = FindService.Get_offer_name(id_deposit)
-        return render_template('deposit.html', id_client=client_id, ID_account=id_deposit, sum=sum, offer_name=offer_name,
-                               percent=percent)
+        return render_template('deposit.html', id_client=client_id, ID_account=id_deposit, sum=sum_dep, offer_name=offer_name,
+                               percent=percent_dep)
     elif request.args['button'] == 'Перейти в кредит':
         id_credit = request.args['credit']
-        sum = FindService.Get_sum(id_credit)
-        percent = FindService.Get_persent(id_credit)
+        sum_cr = FindService.Get_sum(id_credit)
+        percent_cr = FindService.Get_percent(id_credit)
         offer_name = FindService.Get_offer_name(id_credit)
-        return render_template('credit.html', id_client=client_id, ID_account=id_credit, sum=sum, offer_name=offer_name,
-                               percent=percent)
+        return render_template('credit.html', id_client=client_id, ID_account=id_credit, sum=sum_cr, offer_name=offer_name,
+                               percent=percent_cr)
     elif request.args['button'] == 'Личная информация':
         client = FindService.Get_client(client_id)
         return render_template('information.html', id_client=client_id, surname=client[0], name=client[1], patronymic=client[2],
@@ -131,14 +131,14 @@ def authorization():
         auth = FindService.Log_in(login,password)
         if(auth[0]==1):
             debet_account = FindService.Get_debet(auth[1])
-            deposite_account = FindService.Get_deposit(auth[1])
+            deposit_account = FindService.Get_deposit(auth[1])
             credit_account = FindService.Get_credit(auth[1])
             return render_template('client.html', id_client=auth[1], debet_accounts=debet_account,
-                                   deposite_accounts=deposite_account, credit_accounts=credit_account)
+                                   deposit_accounts=deposit_account, credit_accounts=credit_account)
         elif auth[0] == 2:
             return render_template('operator.html',id_operator=auth[1])
         else:
-            return render_template('authrization.html', message = "Неверные данные")
+            return render_template('authrization.html', message="Неверные данные")
     elif request.args['button'] == 'Регистрация':
         return render_template('registration.html')
     elif request.args['button'] == 'Вход':

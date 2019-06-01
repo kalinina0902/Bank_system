@@ -60,15 +60,18 @@ class FindService:
 
     @staticmethod
     def Get_sum(id_acc):
-        return Account.get(Account.ID_account==id_acc)
+
+        acc = Account.get(Account.ID_account == id_acc)
+        return acc.sum
 
     @staticmethod
     def Get_offer_name(id_acc):
-        return Offer.get(Offer.ID_offer==(Account.get(Account.ID_account==id_acc)).ID_offer).name
+        return Offer.get(Offer.ID_offer==(Account.get(Account.ID_account == id_acc)).ID_offer).name
 
     @staticmethod
     def Get_percent(id_acc):
-        return Offer.get(Offer.ID_offer == (Account.get(Account.ID_account==id_acc)).ID_offer).percent
+
+        return Offer.get(Offer.ID_offer == (Account.get(Account.ID_account == id_acc)).ID_offer).percent
 
     @staticmethod
     def Get_client(id_client):
