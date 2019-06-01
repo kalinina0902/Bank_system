@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b82be286-673e-4dc7-9419-ae2554d251b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/BD.db" beforeDir="false" afterPath="$PROJECT_DIR$/BD.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/find_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/find_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_credit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_credit.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,15 +13,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/client.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="67" column="87" selection-start-line="67" selection-start-column="87" selection-end-line="67" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="265">
@@ -35,10 +24,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/add_credit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/werkzeug/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="5814">
               <caret line="347" selection-start-line="347" selection-end-line="347" />
             </state>
           </provider>
@@ -47,7 +45,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/flask/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="30328">
               <caret line="1813" selection-start-line="1813" selection-end-line="1813" />
             </state>
           </provider>
@@ -56,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/operator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
+            <state relative-caret-position="595">
               <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
             </state>
           </provider>
@@ -65,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/werkzeug/debug/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
+            <state relative-caret-position="5032">
               <caret line="319" selection-start-line="319" selection-end-line="319" />
             </state>
           </provider>
@@ -74,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/authorization.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="442">
               <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
             </state>
           </provider>
@@ -83,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/find_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="1020">
               <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -95,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/peewee.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
+            <state relative-caret-position="69615">
               <caret line="4116" selection-start-line="4116" selection-end-line="4116" />
             </state>
           </provider>
@@ -173,12 +171,12 @@
         <option value="$PROJECT_DIR$/templates/client.html" />
         <option value="$PROJECT_DIR$/static/style.css" />
         <option value="$PROJECT_DIR$/templates/information.html" />
-        <option value="$PROJECT_DIR$/templates/add_credit.html" />
         <option value="$PROJECT_DIR$/templates/add_deposit.html" />
         <option value="$PROJECT_DIR$/templates/operator.html" />
         <option value="$PROJECT_DIR$/templates/my_transaction.html" />
         <option value="$PROJECT_DIR$/services/find_service.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/templates/add_credit.html" />
       </list>
     </option>
   </component>
@@ -316,7 +314,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24798928" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25134048" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -676,17 +674,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/add_credit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/add_deposit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="87" selection-start-line="67" selection-start-column="87" selection-end-line="67" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/werkzeug/local.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5814">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30328">
+          <caret line="1813" selection-start-line="1813" selection-end-line="1813" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/operator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/werkzeug/debug/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5032">
+          <caret line="319" selection-start-line="319" selection-end-line="319" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/authorization.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/find_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/peewee.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69615">
+          <caret line="4116" selection-start-line="4116" selection-end-line="4116" />
         </state>
       </provider>
     </entry>
@@ -699,65 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/authorization.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/werkzeug/debug/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="319" selection-start-line="319" selection-end-line="319" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/werkzeug/local.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="347" selection-start-line="347" selection-end-line="347" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/peewee.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="4116" selection-start-line="4116" selection-end-line="4116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/find_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/operator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="67" column="87" selection-start-line="67" selection-start-column="87" selection-end-line="67" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="1813" selection-start-line="1813" selection-end-line="1813" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -765,6 +756,13 @@
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/add_credit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
         </state>
       </provider>
     </entry>
