@@ -23,19 +23,29 @@ class FindService:
         return id_debet
 
     @staticmethod
+    def Get_deposit_offer():
+        return Offer.select().where(Offer.type == 'deposit')
+
+    @staticmethod
+    def Get_credit_offer():
+        return Offer.select().where(Offer.type == 'credit')
+
+    @staticmethod
     def Get_deposit(ID_client):
 
-        id_deposite =[]
-        deposit_account = Account.select().where((Account.ID_client == ID_client)&( Account.ID_offer == Offer.select().where(Offer.type == 'deposit')))
-        for it in deposit_account:
-            id_deposite.append(it.ID_account)
-        return id_deposite
+        id_deposit =[]
+        account = Account.select().where((Account.ID_client == ID_client))
+        for it in account:
+           if Offer.get(Offer.ID_offer == it.ID_offer).type == ('deposit'):
+                id_deposit.append(it.ID_account)
+        return id_deposit
 
     @staticmethod
     def Get_credit(ID_client):
 
         id_credit = []
-        credit_account = Account.select().where((Account.ID_client == ID_client)&( Account.ID_offer == Offer.select().where(Offer.type == 'credit')))
-        for it in credit_account:
-            id_credit.append(it.ID_account)
+        account = Account.select().where((Account.ID_client == ID_client))
+        for it in account:
+            if Offer.get(Offer.ID_offer == it.ID_offer).type == ('credit'):
+                id_credit.append(it.ID_account)
         return id_credit

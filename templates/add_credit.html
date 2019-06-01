@@ -6,21 +6,21 @@
 <title>Online_bank : Взятие кредита</title>
 </head>
 <body>
+<form action="/add_credit" method="GET">
 <div class="header">
 	<div class="logo">
-	Online_bank
+		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' action="add_credit.html">
 	<tr>
-	<th colspan = "2" align="center"><h1> Взятие кредита <h1></th>
+	<th colspan = "2" align="center"><h1> Взятие кредита </h1></th>
 	</tr>
 	<tr><td><div class='form-row'><label>Предложения по кредитам</label></div></td>
 	<td align="right"><div class='form-row'><select name="chooseoffer" required>
@@ -33,21 +33,23 @@
 	<tr><td><div class='form-row'><label for='form_accountto'>Счёт зачисления</label></div></td>
 		<td align="right"><div class='form-row'><select name="accountto" required>
                     <option disabled selected value="null">(Не выбрано)</option>
-                    {%for item in accounts%}
-                    <option value={{item.ID_account}}>{{item.ID_account}}</option>
+			   		{%for item in debet_accounts%}
+                    <option value={{item}}>{{item}}</option>
                     {% endfor %}
 		</select></div></td>		
 	</tr>
-	<tr><td><div class='form-row'><label>Сумма</label></td>
+		<tr><td><div class='form-row'><label>Сумма</label></div></td>
 		<td align="right" ><div class="form-row"><input type='text' id='sum' name='sum' placeholder="1000"></div></td>
 	</tr>
 	<tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Взять кредит'></div></td>	
+		<input type="submit" name="button" value='Взять кредит'></div></td>
 	</tr>
-	</form>
+
 	</tbody>
 	</table>
 </div>
+	<div class="id_client"><input type="hidden" name="id_client" value={{id_client}}></div>
+</form>
 
 <div class="footer">
 	<br><div class="left"> О Компании </div>

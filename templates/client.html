@@ -20,13 +20,16 @@
 	<table>
 	<tbody>
 	<tr>
+	<th colspan= '2' align = "center">{{message}}</th>
+	</tr>
+	<tr>
 	<th colspan = "3" align="center"><h1> Личный кабинет </h1></th>
 	</tr>
 	<tr><td colspan = "3" align="center"><div class="form-row">
 	<input type="submit" value='Личная информация'></div></td>	
 	</tr>
 	<tr>
-	<td align="left"><div class='form-row1'><select name="dedet" required>
+	<td align="left"><div class='form-row1'><select name="debet" required>
 				<option disabled selected value="null">Дебетовые счета</option>
 				{%for item in debet_accounts%}
 				<option value={{item}}>{{item}}</option>
@@ -35,19 +38,19 @@
 	<td align="center"><div class="form-row1">
 	<input type="submit" value='>'></div></td>	
 		<td align="center"><div class="form-row1">
-	<input type="submit" value='+'></div></td>	
+	<input type="submit" name = "button" value='Открыть_счёт'></div></td>
 	</tr>
 	<tr>
 	<td align="left"><div class='form-row1'><select name="deposit" required>
 				<option disabled selected value="null">Вклады</option>
 				{%for item in deposit_accounts%}
-				<option value={{item.ID_account}}>{{item}}</option>
+				<option value={{item}}>{{item}}</option>
 				{% endfor %}
 	</select></div></td>
 	<td align="center"><div class="form-row1">
 	<input type="submit" value='>'></div></td>	
 		<td align="center"><div class="form-row1">
-	<input type="submit" value='+'></div></td>	
+	<input type="submit" name = "button" value='Открыть_вклад'></div></td>
 	</tr>
 	<tr>
 	<td align="left"><div class='form-row1'><select name="credit" required>
@@ -59,11 +62,12 @@
 	<td align="center"><div class="form-row1">
 	<input type="submit" value='>'></div></td>	
 		<td align="center"><div class="form-row1">
-	<input type="submit" value='+'></div></td>	
+	<input type="submit" name = "button" value='Взять_кредит'></div></td>
 	</tr>
 	</tbody>
 	</table>
 </div>
+	<div class="id_client"><input type="hidden" name="id_client" value={{id_client}}></div>
 </form>
 
 
