@@ -25,9 +25,9 @@
 	<tr><td><div class='form-row'><label>Счёт списания</label></div></td>
 		<td align="right"><div class='form-row'><select name="accountfrom" required>
                     <option disabled selected value="null">(Не выбрано)</option>
-                    {%for item in accounts%}
+                    {{%for item in accounts%}}
                     <option value={{item.ID_account}}>{{item.ID_account}}</option>
-                    {% endfor %}
+                    {{% endfor %}}
 		</select></div></td>		
 	</tr>
 	<tr><td><div class='form-row'><label>Счёт зачисления</label></div></td>
