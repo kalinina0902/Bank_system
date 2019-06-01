@@ -13,9 +13,7 @@ h1{
 	color: #122C5A;
 	
 }
-.id_client{
-color: #FFFFFF;
-}
+
 .header{
 	background-color: rgba(70,130, 180, 0.5);
 	height: 80px;
@@ -68,7 +66,6 @@ color: #FFFFFF;
 .menu input[type=submit]{
     text-align: center;
 	height:35px;
-	width:100px;
 	line-height: 0px;
 	background:rgba(70,130, 180, 0);
 	color:#122C5A;

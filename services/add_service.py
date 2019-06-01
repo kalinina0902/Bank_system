@@ -25,67 +25,15 @@ class AddService:
             return s
 
     @staticmethod
-    def add_debet(id_client):
-        Account.create(sum=0, ID_offer=Offer.get(Offer.ID_offer == 1), ID_client=id_client, date_open=date.today())
+    def add_debet(self, id_client):
+        Account.create(type=1,date_open=datetime.today(),percent=0,count_money_now=0,id_client=id_client)
 
     @staticmethod
-    def add_credit(id_client,id_offer,num_deb,sum):
-        Account.create(sum=(sum*-1), ID_offer=id_offer, ID_client=id_client, date_open=date.today(), date_close = date.today()+Offer.get(Offer.ID_offer == id_offer).period)
-        Account.update(sum=Account.sum+sum).where(Account.number == num_deb)
+    def add_credit(self,id_client,Offer,num_deb,sum):
+        Account.create(type=2, date_open=datetime.today(), percent=Offer.percent, count_money_now=sum, id_client=id_client)
+        Account.update(count_money_now=Account.count_money_now-sum).where(Account.number == num_deb)
 
     @staticmethod
-    def add_deposit(id_client,id_offer,id_debet ,sum):
-        dateall = date.today()
-        day = dateall.day
-        month = dateall.month
-        year = dateall.year
-        period = (Offer.get(Offer.ID_offer == id_offer)).period
-        year_period = period // 12
-        if (day==31):
-            day-=1
-        if year_period  > 0:
-            year += year_period
-            period -= year_period*12
-        if month + period > 12:
-            k = 12 - month
-            period -=k
-            year+=1
-        month+=period
-        if month == 2 & day == 30:
-            day = 28
-        date_close = datetime(year,month,day)
-        if((Account.get(Account.ID_account==id_debet)).sum > sum):
-            Account.create(sum=sum, ID_offer=id_offer, ID_client=id_client, date_open=dateall, date_close=date_close)
-            acc = Account.get(Account.ID_account == id_debet)
-            acc.sum-=sum
-            acc.save()
-            s = 1
-            return s
-        else:
-            s = 2
-            return s
-    @staticmethod
-    def add_credit(id_client,id_offer,id_debet ,sum):
-        dateall = date.today()
-        day = dateall.day
-        month = dateall.month
-        year = dateall.year
-        period = (Offer.get(Offer.ID_offer == id_offer)).period
-        year_period = period // 12
-        if day == 31:
-            day -= 1
-        if year_period > 0:
-            year += year_period
-            period -= year_period*12
-        if month + period > 12:
-            k = 12 - month
-            period -= k
-            year += 1
-        month += period
-        if month == 2 & day == 30:
-            day = 28
-        date_close = datetime(year,month,day)
-        Account.create(sum=(sum*-1), ID_offer=id_offer, ID_client=id_client, date_open=dateall, date_close=date_close)
-        acc = Account.get(Account.ID_account == id_debet)
-        acc.sum += sum
-        acc.save()
+    def add_deposite(self,id_client,offer,num_deb,sum):
+        Account.create(type=3, date_open=datetime.today(), percent=offer.percent, count_money_now=sum, id_client=id_client)
+        Account.update(count_money_now=Account.count_money_now-sum).where(Account.number == num_deb)
