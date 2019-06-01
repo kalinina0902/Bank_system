@@ -5,7 +5,7 @@
 <link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
 <title>Online_bank.ru :: Транзакции</title>
 </head>
-<form action="/my_transaction" method="GET">
+<br action="/my_transaction" method="GET">
 <div class="header">
 	<div class="logo">
 		Online_bank
@@ -19,18 +19,18 @@
 	<table  border="1" width = "70%" align="center">
 	<tbody>
 	<tr>
-    <th colspan = "5" align="center" > <h1> Транзакции <h1></th>
+    <th colspan = "5" align="center" > <h1> Транзакции </h1></th>
 	</tr>
 	<tr><td align="center"><h2>Id</h2></td><td align="center"><h2>Счёт списания</h2></td><td align="center"><h2>Счёт зачисления</h2></td><td align="center"><h2>Сумма</h2></td><td align="center"><h2>Дата</h2></td></tr>
         {%for it in table%}
         <tr><td align="center"><h2>{{it.ID_transaction}}</h2></td><td align="center"><h2>{{it.ID_account_from}}</h2></td><td align="center"><h2>{{it.ID_account_to}}</h2></td><td align="center"><h2>{{it.sum}}</h2></td><td align="center"><h2>{{it.date}}</h2></td></tr>
-        {% endfor %}
+        {%endfor%}
 	</tbody></table>
 </div>
 
 
-<br><h2><input type="submit" name="button" value="Личный кабинет"></h2>
-	<div class="infid"><input type="hidden" {{id_client}}></div>
+<br><h2><input type="submit" name="button" value="Личный кабинет"></h2></br>
+	<div class="infid"><input type="hidden" name = "id_client" value={{id_client}}></div>
 </form>
 <div class="footer">
 	<br><div class="left"> О Компании </div>

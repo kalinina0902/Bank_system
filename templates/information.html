@@ -29,10 +29,13 @@
 			<td align="right" ><div class="form-row"><label>{{name}}</label></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label>Отчество</label></div></td>
-			<td  align="right"><div class="form-row"><label>{{patronymics}}</label></div></td>
+			<td  align="right"><div class="form-row"><label>{{patronymic}}</label></div></td>
 		</tr>		
-		<tr><td><div class='form-row'><label>Номер и серия паспорта</label></div></td>
-			<td align="right"><div class="form-row"><label>{{passport}}</label></div></td>
+		<tr><td><div class='form-row'><label>Номер паспорта</label></div></td>
+			<td align="right"><div class="form-row"><label>{{passport_num}}</label></div></td>
+		</tr>
+		<tr><td><div class='form-row'><label>Серия паспорта</label></div></td>
+			<td align="right"><div class="form-row"><label>{{passport_ser}}</label></div></td>
 		</tr>
 		<tr><td><div class='form-row'><label>Дата рождения</label></div></td>
 			<td align="right"><div class="form-row"><label>{{date_of_birth}}</label></div></td>
@@ -44,8 +47,8 @@
 	</tbody>
 	</table>
 </div>
-	<br><h2><input type="submit" name="button" value="Личный кабинет"></h2>
-	<div class="infid"><input type="hidden" {{id_client}}></div>
+	<br><h2><div class="form-row1"><input type="submit" name="button" value="Личный кабинет"></div></h2>
+	<div class="infid"><input type="hidden" name = "id_client"  value={{id_client}}></div>
 	</form>
 
 <div class="footer">

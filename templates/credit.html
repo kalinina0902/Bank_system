@@ -6,40 +6,43 @@
 <title>Online_bank :: Кредитный счёт</title>
 </head>
 <body>
+<form action="/credit" method="GET">
 <div class="header">
-		<div class="logo">
+	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table >
 	<tbody>
-	<form method='post' action="credit.html">
+
 	<tr>
-	<td align="left"><h2>Название</h2></td><td align="right"><h2>{{account.ID_offer.name}}</h2></td>
+	<td align="left"><h2>Название</h2></td><td align="right"><h2>{{offer_name}}</h2></td>
 	</tr>
 	<tr>
-	<td align="left"><h2>Номер кредита</h2></td><td align="right"><h2>{{account.ID_account}}</h2></td>
+	<td align="left"><h2>Номер кредита</h2></td><td align="right"><h2>{{ID_account}}</h2></td>
 	</tr>
 	<tr>
-	<td align="left"><h2>Баланс</h2></td><td align="right"><h2>{{account.sum}}</h2></td>
+	<td align="left"><h2>Баланс</h2></td><td align="right"><h2>{{sum}}</h2></td>
 	</tr>
 	<tr>
-	<td align="left"><h2>Процентная ставка</h2></td><td align="right"><h2>{{account.percent}}</h2></td>
+	<td align="left"><h2>Процентная ставка</h2></td><td align="right"><h2>{{percent}}</h2></td>
 	</tr>
 	</tr>
 	 <tr><td colspan = "2" align="center"><h2> Доступные операции: </h2></td></tr>
     <tr><td colspan = "2" align="center"><div class="form-row">
 		<input type="submit" value='Ежемесячный платёж'></div></td></tr>
-	</form>
+
 	</tbody>
 
 	</table>
 	</div>
+		<div class="infid"><input type="hidden" {{id_client}}></div>
+</form>
 	
 <div class="footer">
 	<br><div class="left"> О Компании </div>
