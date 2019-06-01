@@ -56,9 +56,9 @@ def action_client():
         return render_template('client.html', message="Открыт дебетовый счёт", id_client=client_id, debet_accounts= debet_account, deposit_accounts=deposit_account,
                                credit_accounts=credit_account)
     elif request.args['button'] == 'Открыть вклад':
-        return render_template('add_deposit.html',id_client=client_id, debet_accounts=debet_account, offers=offers_deposit)
+        return render_template('add_deposit.html', id_client=client_id, accounts=debet_account, offers=offers_deposit)
     elif request.args['button'] == 'Взять кредит':
-        return render_template('add_credit.html',id_client=client_id, debet_accounts=debet_account, offers=offers_credit)
+        return render_template('add_credit.html',id_client=client_id, accounts=debet_account, offers=offers_credit)
     elif request.args['button'] == 'Перейти в дебет':
         id_debet = request.args['debet']
         sum = FindService.Get_sum(id_debet)
@@ -132,7 +132,7 @@ def authorization():
             debet_account = FindService.Get_debet(client_id)
             deposite_account = FindService.Get_deposit(client_id)
             credit_account = FindService.Get_credit(client_id)
-            return render_template('client.html', id_client=client_id,debet_accounts=debet_account,
+            return render_template('client.html', id_client=client_id, debet_accounts=debet_account,
                                    deposite_accounts=deposite_account, credit_accounts=credit_account)
     elif request.args['button'] == 'Регистрация':
         return render_template('registration.html')
@@ -144,10 +144,7 @@ def information():
     client_id = request.args['id_client']
     if request.args["button"] == 'Посмотреть транзакции':
         transaction = FindService.Get_all_transaction(client_id)
-        list=[]
-        for it in transaction:
-            list.append(it)
-        return render_template("my_transaction.html",id_client=client_id, table= transaction)
+        return render_template("my_transaction.html",id_client=client_id, table=transaction)
     elif request.args['button'] == 'Личный кабинет':
         debet_account = FindService.Get_debet(client_id)
         deposite_account = FindService.Get_deposit(client_id)
@@ -156,6 +153,20 @@ def information():
                                deposite_accounts=deposite_account, credit_accounts=credit_account)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
+
+
+@app.route("/my_transaction", methods=['GET'])
+def transaction():
+    client_id = request.args['id_client']
+    if request.args['button'] == 'Личный кабинет':
+        debet_account = FindService.Get_debet(client_id)
+        deposite_account = FindService.Get_deposit(client_id)
+        credit_account = FindService.Get_credit(client_id)
+        return render_template('client.html', id_client=client_id, debet_accounts=debet_account,
+                               deposite_accounts=deposite_account, credit_accounts=credit_account)
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
 
 if __name__ == '__main__':
  app.run(debug=True)

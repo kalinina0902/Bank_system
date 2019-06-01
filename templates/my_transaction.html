@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
-<title>Online_bank.ru :: Транзакции</title>
+<title>Online_bank :: Транзакции</title>
 </head>
-<br action="/my_transaction" method="GET">
+<form action="/my_transaction" method="GET">
 <div class="header">
 	<div class="logo">
 		Online_bank
@@ -29,7 +29,7 @@
 </div>
 
 
-<br><h2><input type="submit" name="button" value="Личный кабинет"></h2></br>
+<br><h2><div class="form-row1"><input type="submit" name="button" value="Личный кабинет"></div></h2>
 	<div class="infid"><input type="hidden" name = "id_client" value={{id_client}}></div>
 </form>
 <div class="footer">
