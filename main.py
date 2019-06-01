@@ -127,13 +127,18 @@ def authorization():
     if request.args['button'] == 'Войти':
         login = request.args['login']
         password = request.args['password']
-        client_id = FindService.Log_in(login,password)
-        if(client_id):
-            debet_account = FindService.Get_debet(client_id)
-            deposite_account = FindService.Get_deposit(client_id)
-            credit_account = FindService.Get_credit(client_id)
-            return render_template('client.html', id_client=client_id, debet_accounts=debet_account,
+        auth = []
+        auth = FindService.Log_in(login,password)
+        if(auth[0]==1):
+            debet_account = FindService.Get_debet(auth[1])
+            deposite_account = FindService.Get_deposit(auth[1])
+            credit_account = FindService.Get_credit(auth[1])
+            return render_template('client.html', id_client=auth[1], debet_accounts=debet_account,
                                    deposite_accounts=deposite_account, credit_accounts=credit_account)
+        elif auth[0] == 2:
+            return render_template('operator.html',id_operator=auth[1])
+        else:
+            return render_template('authrization.html', message = "Неверные данные")
     elif request.args['button'] == 'Регистрация':
         return render_template('registration.html')
     elif request.args['button'] == 'Вход':

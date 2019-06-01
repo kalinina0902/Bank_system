@@ -2,20 +2,21 @@ from model.client import Client
 from model.account import Account
 from model.offer import Offer
 from model.transaction import Transaction
+from model.operator import Operator
 
 class FindService:
 
     @staticmethod
     def Log_in(login, password):
 
-        my_client = Client.select().where((Client.login == login) & (Client.password == password)).get()
-        if(my_client):
-            return my_client.ID_client
+        try:
+            my_client = Client.select().where((Client.login == login) & (Client.password == password)).get()
+            return [1, my_client.ID_client]
+        except:
+            my_operator = Operator.select().where((Operator.login == login) & (Operator.password == password)).get()
+            return [2, my_operator.ID_operator]
         else:
-
-            return -1
-
-            return 0
+            return [0,0]
 
 
     @staticmethod
@@ -67,7 +68,7 @@ class FindService:
 
     @staticmethod
     def Get_percent(id_acc):
-        return Offer.get(Offer.ID_offer==(Account.get(Account.ID_account==id_acc)).ID_offer).percent
+        return Offer.get(Offer.ID_offer == (Account.get(Account.ID_account==id_acc)).ID_offer).percent
 
     @staticmethod
     def Get_client(id_client):
