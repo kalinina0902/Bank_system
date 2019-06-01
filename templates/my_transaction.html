@@ -5,22 +5,19 @@
 <link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
 <title>Online_bank.ru :: Транзакции</title>
 </head>
-<body>
+<form action="/my_transaction" method="GET">
 <div class="header">
 	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
-</div>
-
 </div>
 
 <div>
 	<table  border="1" width = "70%" align="center">
 	<tbody>
-	<form method='post' action="my_transaction.html">
 	<tr>
     <th colspan = "5" align="center" > <h1> Транзакции <h1></th>
 	</tr>
@@ -28,12 +25,13 @@
         {%for it in table%}
         <tr><td align="center"><h2>{{it.ID_transaction}}</h2></td><td align="center"><h2>{{it.ID_account_from}}</h2></td><td align="center"><h2>{{it.ID_account_to}}</h2></td><td align="center"><h2>{{it.sum}}</h2></td><td align="center"><h2>{{it.date}}</h2></td></tr>
         {% endfor %}
-	</form></tbody></table>
+	</tbody></table>
 </div>
 
 
-<br><h2><div class="inf"><a href={{url_for('client'}}> Личный кабинет </a></div></h2>
-
+<br><h2><input type="submit" name="button" value="Личный кабинет"></h2>
+	<div class="infid"><input type="hidden" {{id_client}}></div>
+</form>
 <div class="footer">
 	<br><div class="left"> О Компании </div>
 	<br><div class="left"> Контакты +7 919 200 12 33</div>

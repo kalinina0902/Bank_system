@@ -6,44 +6,47 @@
 <title>Online_bank : Личная информация</title>
 </head>
 <body>
+<form action="/information" method="GET">
 <div class="header">
-		<div class="logo">
+	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' action="information.html">
 	<tr>
-	<th colspan = "2" align="center"><h1> Личная информация <h1></th>
+	<th colspan = "2" align="center"><h1> Личная информация </h1></th>
 	</tr>
 	<tr><td><div class='form-row'><label>Фамилия</label></div></td>
-			<td align="right"><div class='form-row'><label>{{surname}}</div></td>		
+		<td align="right"><div class='form-row'><label>{{surname}}</label></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label>Имя</label></td>
-			<td align="right" ><div class="form-row"><label>{{name}}</div></td>
+		<tr><td><div class='form-row'><label>Имя</label></div></td>
+			<td align="right" ><div class="form-row"><label>{{name}}</label></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label>Отчество</label></td>
-			<td  align="right"><div class="form-row"><label>{{patronymics}}</div></td>
+		<tr><td><div class='form-row'><label>Отчество</label></div></td>
+			<td  align="right"><div class="form-row"><label>{{patronymics}}</label></div></td>
 		</tr>		
-		<tr><td><div class='form-row'><label>Номер и серия паспорта</label></td>
-			<td align="right"><div class="form-row"><label>{{passport}}</div></td>	
+		<tr><td><div class='form-row'><label>Номер и серия паспорта</label></div></td>
+			<td align="right"><div class="form-row"><label>{{passport}}</label></div></td>
 		</tr>
-		<tr><td><div class='form-row'><label>Дата рождения</label></td>
-			<td align="right"><div class="form-row"><label>{{date_of_birth}}</div></td>	
+		<tr><td><div class='form-row'><label>Дата рождения</label></div></td>
+			<td align="right"><div class="form-row"><label>{{date_of_birth}}</label></div></td>
 		</tr>
 		<tr><td colspan = "2" align="center"><div class="form-row">
-			<input type="submit" value='Посмотреть транзакции'></div></td>	
+			<input type="submit" name="button" value='Посмотреть транзакции'></div></td>
 		</tr>
-	</form>
+
 	</tbody>
 	</table>
 </div>
+	<br><h2><input type="submit" name="button" value="Личный кабинет"></h2>
+	<div class="infid"><input type="hidden" {{id_client}}></div>
+	</form>
 
 <div class="footer">
 	<br><div class="left"> О Компании </div>

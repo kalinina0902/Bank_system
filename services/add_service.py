@@ -28,11 +28,7 @@ class AddService:
     def add_debet(id_client):
         Account.create(sum=0, ID_offer=Offer.get(Offer.ID_offer == 1), ID_client=id_client, date_open=date.today())
 
-    @staticmethod
-    def add_credit(id_client, id_offer, num_deb, sum):
-        Account.create(sum=(sum * -1), ID_offer=id_offer, ID_client=id_client, date_open=date.today(),
-                       date_close=date.today() + Offer.get(Offer.ID_offer == id_offer).period)
-        Account.update(sum=Account.sum + sum).where(Account.number == num_deb)
+
 
     @staticmethod
     def add_deposit(id_client, id_offer, id_debet, sum):

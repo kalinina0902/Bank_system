@@ -6,19 +6,19 @@
 <title>Online_bank : Открытие вклада</title>
 </head>
 <body>
+<form  action="/add_deposit" method="GET">
 <div class="header">
 	<div class="logo">
-	Online_bank
+		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' action="add_deposit.html">
 	<tr>
 	<th colspan = "2" align="center"><h1> Открытие вклада </h1></th>
 	</tr>
@@ -42,17 +42,19 @@
 		<td align="right" ><div class="form-row"><input type='text' id='sum' name='sum' placeholder="1000"></div></td>
 	</tr>
 	<tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Открыть'></div></td>
+		<input type="submit" name="button"  value='Открыть'></div></td>
 	</tr>
-	</form>
+
 	</tbody>
 	</table>
 </div>
+	<div class="infid"><input type="hidden" {{id_client}}></div>
+	</form>
 
 <div class="footer">
 	<br><div class="left"> О Компании </div>
 	<br><div class="left"> Контакты +7 919 200 12 33</div>
 	<br><div class="left"> <a href= "online_bank@mail.ru" title="Почта для связи"> online_bank@mail.ru</a></div>	
-</div>	
+</div>
 </body>
 </html>

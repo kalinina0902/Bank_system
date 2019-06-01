@@ -6,18 +6,18 @@
 <title>Online_bank : Личный кабинет</title>
 </head>
 <body>
+<form action="/operator" method="GET">
 <div class="header">
-<div class="logo">
+	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' action="operator.html">
 	<tr>
 	<th align="center"><h1> Личный кабинет </h1></th>
 	</tr>
@@ -30,11 +30,11 @@
 	<tr><td align="center"><div class="form-row">
 		<input type="submit" value='Удалить предложение'></div></td>	
 	</tr>
-	</form>
 	</tbody>
 	</table>
 </div>
-
+<div class="infid"><input type="hidden" {{id_operator}}></div>
+</form>
 <div class="footer">
 	<br><div class="left"> О Компании </div>
 	<br><div class="left"> Контакты +7 919 200 12 33</div>
