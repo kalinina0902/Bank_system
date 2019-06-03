@@ -64,6 +64,9 @@ class AddService:
 
     @staticmethod
     def add_credit(id_client, id_offer, id_debet, sum):
+        acc = Account.get(Account.ID_account == id_debet)
+        acc.sum += sum
+        acc.save()
         dateall = date.today()
         day = dateall.day
         month = dateall.month
@@ -84,12 +87,10 @@ class AddService:
         if month == 2 & day == 30:
             day = 28
         date_close = datetime(year, month, day)
-        summonth = ((sum*percent)/(100*12))/(1-(1/((1 + (percent/(100*12)))**(12*year_period))))
+        summonth = round(((sum*percent)/(100*12))/(1-(1/((1 + (percent/(100*12)))**(period)))),2)
         sumcred = summonth * period
         Account.create(sum=(sumcred * -1), ID_offer=id_offer, ID_client=id_client, date_open=dateall, date_close=date_close)
-        acc = Account.get(Account.ID_account == id_debet)
-        acc.sum += sum
-        acc.save()
+
 
     @staticmethod
     def add_transaction(sum, id_client, id_account_to, id_account_from):
