@@ -30,6 +30,10 @@ class FindService:
         return Offer.select().where(Offer.type == 'deposit')
 
     @staticmethod
+    def Get_offer():
+        return Offer.select()
+
+    @staticmethod
     def Get_credit_offer():
         return Offer.select().where(Offer.type == 'credit')
 

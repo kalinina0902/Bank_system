@@ -6,19 +6,19 @@
 <title>Online_bank : Добавление предложения</title>
 </head>
 <body>
+<form action="/add_offer" method="GET">
 <div class="header">
 	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' action="add_offer.html">
 	<tr>
 	<th colspan = "2" align="center"><h1> Добавление предложения </h1></th>
 	</tr>
@@ -29,20 +29,22 @@
 					<option value="2">Вклад</option>
 		</select></div></td>		
 	</tr>
-	<tr><td><div class='form-row'><label >Название</label></td>
+	<tr><td><div class='form-row'><label >Название</label></div></td>
 		<td align="right" ><div class="form-row"><input type='text' id='nameoffer' name='nameoffer'></div></td>
 	</tr>
-	<tr><td><div class='form-row'><label>Процент</label></td>
+	<tr><td><div class='form-row'><label>Процент</label></div></td>
 		<td align="right" ><div class="form-row"><input type='text' id='percent' name='percent'></div></td>
 	</tr>
-	<tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Добавить предложение'></div></td>	
+	<tr><td><div class='form-row'><label>Период</label></div></td>
+		<td align="right" ><div class="form-row"><input type='text' id='period' name='period'></div></td>
 	</tr>
-	</form>
+	<tr><td colspan = "2" align="center"><div class="form-row">
+		<input type="submit" name="button" value='Добавить предложение'></div></td>
+	</tr>
 	</tbody>
 	</table>
 </div>
-
+</form>
 <div class="footer">
 	<br><div class="left"> О Компании </div>
 	<br><div class="left"> Контакты +7 919 200 12 33</div>

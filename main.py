@@ -269,15 +269,65 @@ def authorization():
             deposit_account = FindService.Get_deposit(auth[1])
             credit_account = FindService.Get_credit(auth[1])
             return render_template('client.html', id_client=auth[1], debet_accounts=debet_account,
-                                   deposit_accounts=deposit_account, credit_accounts=credit_account)
+                                   deposit_accounts=deposit_account, credit_accounts=credit_account,message="")
         elif auth[0] == 2:
-            return render_template('operator.html',id_operator=auth[1])
+            return render_template('operator.html',message="")
         else:
             return render_template('authrization.html', message="Неверные данные")
     elif request.args['button'] == 'Регистрация':
         return render_template('registration.html')
     elif request.args['button'] == 'Вход':
         return render_template('authorization.html')
+
+
+@app.route("/operator", methods=['GET'])
+def operator_action():
+    if request.args["button"] == 'Добавить предложение':
+        return render_template("add_offer.html")
+    elif request.args['button'] == 'Редактировать предложение':
+        offers = FindService.Get_offer()
+        return render_template("edit_offer.html", offers=offers)
+    elif request.args['button'] == 'Удалить предложение':
+        offers = FindService.Get_offer()
+        return render_template("delete_offer.html", offers=offers)
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route("/add_offer", methods=['GET'])
+def add_offer():
+    period = int(request.args['period'])
+    percent = float(request.args['percent'])
+    name = request.args['nameoffer']
+    type = request.args['type']
+    if request.args["button"] == 'Добавить предложение':
+        AddService.add_offer(name=name, period=period, percent=percent, type=type)
+        return render_template("operator.html",message="Предложение добавлено")
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route("/edit_offer", methods=['GET'])
+def edit_offer():
+    period = int(request.args['period'])
+    percent = float(request.args['percent'])
+    name = request.args['nameoffer']
+    offer_id = request.args['chooseoffer']
+    if request.args["button"] == 'Изменить информацию':
+        AddService.change_offer(id_offer=offer_id, name=name, period=period, percent=percent)
+        return render_template("operator.html",message="Предложение изменено")
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route("/delete_offer", methods=['GET'])
+def delete_offer():
+    offer_id = request.args['chooseoffer']
+    if request.args["button"] == 'Удалить':
+        AddService.delete_offer(id_offer=offer_id)
+        return render_template("operator.html",message="Предложение удалено")
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
 
 
 @app.route("/information",methods=['GET'])

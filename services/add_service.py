@@ -99,3 +99,22 @@ class AddService:
     @staticmethod
     def delete_deposit(id_account):
         Account.get(Account.ID_account == id_account).delete_instance()
+
+    @staticmethod
+    def delete_offer(id_offer):
+        Offer.get(Offer.ID_offer == id_offer).delete_instance()
+
+    @staticmethod
+    def add_offer(name, percent, type, period):
+        if type == "1":
+            Offer.create(name=name, type='credit', period=period, percent=percent)
+        elif type == "2":
+            Offer.create(name=name, type='deposit', period=period, percent=percent)
+
+    @staticmethod
+    def change_offer(id_offer, name, period, percent):
+        offer = Offer.get(Offer.ID_offer == id_offer)
+        offer.name = name
+        offer.percent = percent
+        offer.period = period
+        offer.save()
