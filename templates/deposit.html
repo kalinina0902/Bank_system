@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href={{url_for('static', filename='style.css')}}>
-<title>Online_bank :: Депозитный счёт</title>
+<title>Online_bank : Депозитный счёт</title>
 </head>
 <body>
 <form action="/deposit" method="GET">
@@ -33,14 +33,16 @@
 	</tr>
 	<tr><td colspan = "2" align="center"> <h2> Доступные операции: </h2></td></tr>
     <tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Пополнить баланс'></div></td>	</tr>
+		<input type="submit" name="button" value='Пополнить баланс'></div></td>	</tr>
 	<tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Закрыть вклад'></div></td></tr>
+		<input type="submit" name="button" value='Закрыть вклад'></div></td></tr>
 
 	</tbody>
 	</table>
-	</div>
-<div class="infid"><input type="hidden" {{id_client}}></div>
+</div>
+	<div class="infid"><input type="hidden" name = "id_client" value={{id_client}}></div>
+	<div class="infid"><input type="hidden" name = "id_account" value={{ID_account}}></div>
+	<div class="infid"><input type="hidden" name = "sum" value={{sum}}></div>
 </form>
 <div class="footer">
 <br><div class="left"> О Компании </div>

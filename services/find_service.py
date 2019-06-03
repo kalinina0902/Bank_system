@@ -8,7 +8,6 @@ class FindService:
 
     @staticmethod
     def Log_in(login, password):
-
         try:
             my_client = Client.select().where((Client.login == login) & (Client.password == password)).get()
             return [1, my_client.ID_client]
@@ -18,10 +17,8 @@ class FindService:
         else:
             return [0,0]
 
-
     @staticmethod
     def Get_debet(ID_client):
-
         id_debet =[]
         debet_account = Account.select().where(Account.ID_client == ID_client, Account.ID_offer == 1)
         for it in debet_account:
@@ -38,7 +35,6 @@ class FindService:
 
     @staticmethod
     def Get_deposit(ID_client):
-
         id_deposit =[]
         account = Account.select().where((Account.ID_client == ID_client))
         for it in account:
@@ -46,11 +42,8 @@ class FindService:
                 id_deposit.append(it.ID_account)
         return id_deposit
 
-
-
     @staticmethod
     def Get_credit(ID_client):
-
         id_credit = []
         account = Account.select().where((Account.ID_client == ID_client))
         for it in account:
@@ -60,9 +53,13 @@ class FindService:
 
     @staticmethod
     def Get_sum(id_acc):
-
         acc = Account.get(Account.ID_account == id_acc)
         return acc.sum
+
+    @staticmethod
+    def Get_date_close_credit(id_acc):
+        acc = Account.get(Account.ID_account == id_acc)
+        return acc.date_close
 
     @staticmethod
     def Get_offer_name(id_acc):
@@ -70,7 +67,6 @@ class FindService:
 
     @staticmethod
     def Get_percent(id_acc):
-
         return Offer.get(Offer.ID_offer == (Account.get(Account.ID_account == id_acc)).ID_offer).percent
 
     @staticmethod

@@ -6,27 +6,31 @@
 <title>Online_bank : Пополнение баланса</title>
 </head>
 <body>
+<form action="/replenish" method="GET">
 <div class="header">
-		<div class="logo">
+	<div class="logo">
 		Online_bank
 	</div>
 	<ul class="menu">
-		<li><a href={{url_for('exit')}}>Выход</a></li>
+		<li><input type="submit" name="button" value="Выход"></li>
 	</ul>
 </div>
 
 <div class="content">
 	<table>
 	<tbody>
-	<form method='post' action="replenish.html">
 	<tr>
 	<th colspan = "2" align="center"><h1> Пополнение баланса </h1></th>
+	</tr>
+	<tr><th colspan= '3' align = "center"><h2>{{message}}</h2></th></tr>
+	<tr><td><div class='form-row'><label>Счёт пополнения</label></div></td>
+		<td align="right"><div class='form-row'><label>{{ID_account}}</label></div></td>
 	</tr>
 	<tr><td><div class='form-row'><label>Счёт списания</label></div></td>
 		<td align="right"><div class='form-row'><select name="accountfrom" required>
                     <option disabled selected value="null">(Не выбрано)</option>
-                    {%for item in accounts%}
-                    <option value={{item.ID_account}}>{{item.ID_account}}</option>
+                    {%for item in debet_accounts%}
+                    <option value={{item}}>{{item}}</option>
                     {% endfor %}
 		</select></div></td>		
 	</tr>
@@ -34,13 +38,14 @@
 		<td align="right" ><div class="form-row"><input type='text' id='sum' name='sum' placeholder="1000"></div></td>
 	</tr>
 	<tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Пополнить'></div></td>	
+		<input type="submit" name="button" value='Пополнить'></div></td>
 	</tr>
-	</form>
 	</tbody>
 	</table>
 </div>
-
+	<div class="infid"><input type="hidden" name = "id_client" value={{id_client}}></div>
+	<div class="infid"><input type="hidden" name = "id_account" value={{ID_account}}></div>
+</form>
 <div class="footer">
 	<br><div class="left"> О Компании </div>
 	<br><div class="left"> Контакты +7 919 200 12 33</div>

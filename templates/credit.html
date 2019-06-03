@@ -19,7 +19,6 @@
 <div class="content">
 	<table >
 	<tbody>
-
 	<tr>
 	<td align="left"><h2>Название</h2></td><td align="right"><h2>{{offer_name}}</h2></td>
 	</tr>
@@ -35,13 +34,14 @@
 	</tr>
 	 <tr><td colspan = "2" align="center"><h2> Доступные операции: </h2></td></tr>
     <tr><td colspan = "2" align="center"><div class="form-row">
-		<input type="submit" value='Ежемесячный платёж'></div></td></tr>
+		<input type="submit" name="button" value='Ежемесячный платёж'></div></td></tr>
 
 	</tbody>
-
 	</table>
-	</div>
-		<div class="infid"><input type="hidden" {{id_client}}></div>
+</div>
+	<div class="infid"><input type="hidden" name = "id_client" value={{id_client}}></div>
+	<div class="infid"><input type="hidden" name = "id_account" value={{ID_account}}></div>
+	<div class="infid"><input type="hidden" name = "sum" value={{sum}}></div>
 </form>
 	
 <div class="footer">

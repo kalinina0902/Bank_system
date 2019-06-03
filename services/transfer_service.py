@@ -3,39 +3,32 @@ from model.transaction import Transaction
 
 
 class TransferService:
-    def transfer_money_another(self, id_from_ac, id_into_ac, sum):
+    @staticmethod
+    def transferfrom(sum, id_account_from):
+        if (sum < Account.get(Account.ID_account == id_account_from).sum):
+            acc = Account.get(Account.ID_account == id_account_from)
+            acc.sum -= sum
+            acc.save()
+            return 1
+        else:
+            return 2
 
-        from_ac = Account.select().where(Account.number == id_from_ac).get()
-        from_ac.count_money_now -= sum
-        from_ac.save()
-        Transaction.create(from_ac=from_ac.number, into_ac=id_into_ac, sum=sum)
-
-
-    def transfer_money_account(self, id_from_ac, id_into_ac, sum):
-
-        from_ac = Account.select().where(Account.number == id_from_ac).get()
-        into_ac = Account.select().where(Account.number == id_into_ac).get()
-        from_ac.count_money_now -= sum
-        from_ac.save()
-        if (into_ac.type == 2):
-            into_ac.count_money_now -= (sum + into_ac.count_money_now*(into_ac.percent/100 +1))
-            if(into_ac.count_money_now):
-                into_ac.save()
-            else:
-                into_ac.delete()
-        elif(into_ac.type == 3):
-            into_ac.count_money_now += sum
-            into_ac.save()
-        Transaction.create(from_ac=from_ac.number, into_ac=into_ac.number, sum=sum)
+    @staticmethod
+    def payment(sum, acc_from, acc_to):
+        if (sum < Account.get(Account.ID_account == acc_from).sum):
+            acc = Account.get(Account.ID_account == acc_from)
+            acc.sum -= sum
+            acc.save()
+            acc2 = Account.get(Account.ID_account == acc_to)
+            acc2.sum += sum
+            acc2.save()
+            return 1
+        else:
+            return 2
 
 
-    def close_deposite(self, id_from_ac,id_into_ac):
-
-        from_ac = Account.select().where(Account.number == id_from_ac).get()
-        into_ac = Account.select().where(Account.number == id_into_ac).get()
-        from_ac.count_money_now += into_ac.count_money_now
-        from_ac.save()
-        into_ac.delete()
-
-    def show_transaction(self):
-        return Transaction.select()
+    @staticmethod
+    def transferto(sum, id_account_to):
+        acc = Account.get(Account.ID_account == id_account_to)
+        acc.sum += sum
+        acc.save()

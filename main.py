@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from model.client import *
 from services.add_service import AddService
 from services.find_service import FindService
+from services.transfer_service import TransferService
 from datetime import date
 
 app = Flask(__name__)
@@ -37,9 +38,9 @@ def addClient():
         elif ans == 2:
             return render_template('registration.html', message="Данные паспорта не валидны")
     elif request.args['button'] == 'Регистрация':
-        return render_template('registration.html')
+        return render_template('registration.html',message="")
     elif request.args['button'] == 'Вход':
-        return render_template('authorization.html')
+        return render_template('authorization.html',message="")
 
 
 @app.route('/client',methods=['GET'])
@@ -84,9 +85,142 @@ def action_client():
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
 
+
+@app.route('/debet', methods=['GET'])
+def action_debet():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    if request.args['button'] == 'Перевод':
+        return render_template('transfer.html', ID_account=account_id, id_client=client_id, message="")
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route('/transfer', methods=['GET'])
+def transfer():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    sum = float(request.args['sum'])
+    accountto = request.args['accountto']
+    if request.args['button'] == 'Осуществить перевод':
+        ans = TransferService.transferfrom(sum=sum,id_account_from=account_id)
+        if ans == 1:
+            debet_account = FindService.Get_debet(client_id)
+            deposit_account = FindService.Get_deposit(client_id)
+            credit_account = FindService.Get_credit(client_id)
+            AddService.add_transaction(sum=sum, id_client=client_id, id_account_to=accountto, id_account_from=account_id)
+            return render_template('client.html', message="Перевод осуществлён", id_client=client_id,
+                                   debet_accounts=debet_account, deposit_accounts=deposit_account,
+                                    credit_accounts=credit_account)
+        if ans == 2:
+            return render_template('transfer.html',message="На счету недостаточно средств для перевода",ID_account=account_id, id_client=client_id)
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route('/credit', methods=['GET'])
+def action_credit():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    sumAll = float(request.args['sum'])
+    date_close = FindService.Get_date_close_credit(account_id)
+    date_today = date.today()
+    years = date_close.year - date_today.year
+    month = date_close.month - date_today.month
+    rem_period = years*12 + month
+    payment=sumAll/rem_period
+    pp = round(payment, 3) * (-1)
+    debet_account = FindService.Get_debet(client_id)
+    if request.args['button'] == 'Ежемесячный платёж':
+        return render_template('every_month_payment.html', ID_account=account_id, id_client=client_id,
+                               debet_accounts=debet_account, payment=pp,message="")
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route('/every_month_payment', methods=['GET'])
+def every_month_payment():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    sum = float(request.args['payment'])
+    accountfrom = request.args['accountfrom']
+    if request.args['button'] == 'Списать':
+        ans = TransferService.payment(sum=sum, acc_from=accountfrom, acc_to=account_id)
+        if ans == 1:
+            debet_account = FindService.Get_debet(client_id)
+            deposit_account = FindService.Get_deposit(client_id)
+            credit_account = FindService.Get_credit(client_id)
+            AddService.add_transaction(sum=sum, id_client=client_id, id_account_to=account_id, id_account_from=accountfrom)
+            return render_template('client.html', message="Платёж осуществлён", id_client=client_id,
+                                   debet_accounts=debet_account, deposit_accounts=deposit_account,
+                                    credit_accounts=credit_account)
+        if ans == 2:
+            return render_template('every_month_payment.html',message="На счету недостаточно средств для платежа",ID_account=account_id, id_client=client_id)
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route('/deposit', methods=['GET'])
+def action_deposit():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    sumAll = float(request.args['sum'])
+    debet_account = FindService.Get_debet(client_id)
+    if request.args['button'] == 'Пополнить баланс':
+        return render_template('replenish.html', ID_account=account_id, id_client=client_id,
+                               debet_accounts=debet_account, message="")
+    elif request.args['button'] == 'Закрыть вклад':
+        return render_template('close_deposite.html', ID_account=account_id, id_client=client_id, sum=sumAll,
+                               debet_accounts=debet_account, message="")
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route('/replenish', methods=['GET'])
+def replenish():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    sum = float(request.args['sum'])
+    accountfrom = request.args['accountfrom']
+    if request.args['button'] == 'Пополнить':
+        ans = TransferService.payment(sum=sum, acc_from=accountfrom, acc_to=account_id)
+        if ans == 1:
+            debet_account = FindService.Get_debet(client_id)
+            deposit_account = FindService.Get_deposit(client_id)
+            credit_account = FindService.Get_credit(client_id)
+            AddService.add_transaction(sum=sum, id_client=client_id, id_account_to=account_id, id_account_from=accountfrom)
+            return render_template('client.html', message="Пополнение осуществлено", id_client=client_id,
+                                   debet_accounts=debet_account, deposit_accounts=deposit_account,
+                                    credit_accounts=credit_account)
+        if ans == 2:
+            return render_template('replenish.html',message="На счету недостаточно средств для пополнения",ID_account=account_id, id_client=client_id)
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
+@app.route('/close_deposit', methods=['GET'])
+def close_deposit():
+    client_id = request.args['id_client']
+    account_id = request.args['id_account']
+    sum = float(request.args['sum'])
+    accountto = request.args['accountto']
+    if request.args['button'] == 'Закрыть вклад':
+        ans = TransferService.transferto(sum=sum, id_account_to=accountto)
+        debet_account = FindService.Get_debet(client_id)
+        credit_account = FindService.Get_credit(client_id)
+        AddService.add_transaction(sum=sum, id_client=client_id, id_account_to=accountto,
+                                   id_account_from=account_id)
+        AddService.delete_deposit(account_id)
+        deposit_account = FindService.Get_deposit(client_id)
+        return render_template('client.html', message="Вклад закрыт", id_client=client_id,
+                               debet_accounts=debet_account, deposit_accounts=deposit_account,
+                               credit_accounts=credit_account)
+    elif request.args['button'] == 'Выход':
+        return render_template('main_page.html')
+
+
 @app.route('/add_deposit', methods=['GET'])
 def add_deposite():
-
     client_id = request.args['id_client']
     debet_account = FindService.Get_debet(client_id)
     credit_account = FindService.Get_credit(client_id)
@@ -122,6 +256,7 @@ def add_credit():
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
 
+
 @app.route('/authorization',methods=['GET'])
 def authorization():
     if request.args['button'] == 'Войти':
@@ -144,6 +279,7 @@ def authorization():
     elif request.args['button'] == 'Вход':
         return render_template('authorization.html')
 
+
 @app.route("/information",methods=['GET'])
 def information():
     client_id = request.args['id_client']
@@ -155,7 +291,7 @@ def information():
         deposite_account = FindService.Get_deposit(client_id)
         credit_account = FindService.Get_credit(client_id)
         return render_template('client.html', id_client=client_id, debet_accounts=debet_account,
-                               deposite_accounts=deposite_account, credit_accounts=credit_account)
+                               deposit_accounts=deposite_account, credit_accounts=credit_account)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
 
@@ -168,7 +304,7 @@ def transaction():
         deposite_account = FindService.Get_deposit(client_id)
         credit_account = FindService.Get_credit(client_id)
         return render_template('client.html', id_client=client_id, debet_accounts=debet_account,
-                               deposite_accounts=deposite_account, credit_accounts=credit_account)
+                               deposit_accounts=deposite_account, credit_accounts=credit_account)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
 
