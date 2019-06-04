@@ -23,15 +23,16 @@ def menu_action():
 
 @app.route('/addClient', methods=['GET'])
 def addClient():
-    if request.args['button'] == 'Зарегистрироваться':
-        name = request.args['first_name']
-        surname = request.args['second_name']
-        patronymic = request.args['patronymic']
-        passport_id = int(request.args['passport_id'])
-        passport_seria = int(request.args['passport_seria'])
-        login = request.args['login']
-        password = request.args['password']
-        date_of_birth = request.args['date_of_birth']
+    name = request.args['first_name']
+    surname = request.args['second_name']
+    patronymic = request.args['patronymic']
+    passport_id = int(request.args['passport_id'])
+    passport_seria = int(request.args['passport_seria'])
+    login = request.args['login']
+    password = request.args['password']
+    date_of_birth = request.args['date_of_birth']
+    if ((request.args['button'] == 'Зарегистрироваться')&(name!='')&(surname!='')&(patronymic!='')&(request.args['passport_id']!='')&
+            (request.args['passport_seria']!='')&(login!='')&(passport_id!='')):
         ans = AddService.registration_client(name,surname,patronymic,passport_id,passport_seria,date_of_birth,login,password)
         if ans == 1:
             return render_template('authorization.html', message="Регистрация прошла успешно")
@@ -41,6 +42,8 @@ def addClient():
         return render_template('registration.html',message="")
     elif request.args['button'] == 'Вход':
         return render_template('authorization.html',message="")
+    else:
+        return render_template('registration.html', message="Не все поля заполнены!")
 
 
 @app.route('/client',methods=['GET'])
@@ -144,7 +147,7 @@ def every_month_payment():
     account_id = request.args['id_account']
     sum = float(request.args['payment'])
     accountfrom = request.args['accountfrom']
-    if request.args['button'] == 'Списать':
+    if ((request.args['button'] == 'Списать')&(request.args['accountfrom']!='null')):
         ans = TransferService.payment(sum=sum, acc_from=accountfrom, acc_to=account_id)
         if ans == 1:
             debet_account = FindService.Get_debet(client_id)
@@ -158,6 +161,8 @@ def every_month_payment():
             return render_template('every_month_payment.html',message="На счету недостаточно средств для платежа",ID_account=account_id, id_client=client_id)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
+    else:
+        return render_template('every_month_payment.html',message="Не выбран счёт!")
 
 
 @app.route('/deposit', methods=['GET'])
@@ -182,7 +187,7 @@ def replenish():
     account_id = request.args['id_account']
     sum = float(request.args['sum'])
     accountfrom = request.args['accountfrom']
-    if request.args['button'] == 'Пополнить':
+    if ((request.args['button'] == 'Пополнить')&(request.args['accountfrom']!='null')):
         ans = TransferService.payment(sum=sum, acc_from=accountfrom, acc_to=account_id)
         if ans == 1:
             debet_account = FindService.Get_debet(client_id)
@@ -196,6 +201,8 @@ def replenish():
             return render_template('replenish.html',message="На счету недостаточно средств для пополнения",ID_account=account_id, id_client=client_id)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
+    else:
+        return render_template('replenish.html',message="Не выбран счёт!")
 
 
 @app.route('/close_deposit', methods=['GET'])
@@ -204,7 +211,7 @@ def close_deposit():
     account_id = request.args['id_account']
     sum = float(request.args['sum'])
     accountto = request.args['accountto']
-    if request.args['button'] == 'Закрыть вклад':
+    if ((request.args['button'] == 'Закрыть вклад')&(request.args['accountto']!='null')):
         ans = TransferService.transferto(sum=sum, id_account_to=accountto)
         debet_account = FindService.Get_debet(client_id)
         credit_account = FindService.Get_credit(client_id)
@@ -217,6 +224,8 @@ def close_deposit():
                                credit_accounts=credit_account)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
+    else:
+        return render_template('close_deposite.html',message="Не выбран счёт!")
 
 
 @app.route('/add_deposit', methods=['GET'])
@@ -227,7 +236,7 @@ def add_deposite():
     offer_id = request.args['chooseoffer']
     debet_id = request.args['accountfrom']
     sum = float(request.args['sum'])
-    if request.args['button'] == 'Открыть':
+    if ((request.args['button'] == 'Открыть')&(request.args['accountfrom']!='null')&(request.args['choseoffer']!='null')&(request.args['sum']!='')):
         s = AddService.add_deposit(id_client=client_id, id_offer=offer_id, id_debet=debet_id, sum=sum)
         deposit_account = FindService.Get_deposit(client_id)
         if s == 1:
@@ -238,6 +247,8 @@ def add_deposite():
                                    debet_accounts=debet_account,deposit_accounts=deposit_account, credit_accounts=credit_account)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
+    else:
+        return render_template('add_deposite.html',message="Не все поля заполнены(выбраны)!")
 
 
 @app.route('/add_credit', methods=['GET'])
@@ -248,18 +259,20 @@ def add_credit():
     offer_id = request.args['chooseoffer']
     debet_id = request.args['accountto']
     sum = float(request.args['sum'])
-    if request.args['button'] == 'Взять кредит':
+    if ((request.args['button'] == 'Взять кредит')&(request.args['accountfrom']!='null')&(request.args['choseoffer']!='null')&(request.args['sum']!='')):
         AddService.add_credit(id_client=client_id, id_offer=offer_id, id_debet=debet_id, sum=sum)
         credit_account = FindService.Get_credit(client_id)
         return render_template('client.html', message="Кредит открыт", id_client=client_id, debet_accounts=debet_account,
                                    deposit_accounts=deposit_account, credit_accounts=credit_account)
     elif request.args['button'] == 'Выход':
         return render_template('main_page.html')
+    else:
+        return render_template('add_credit.html',message="Не все поля заполнены(выбраны)!")
 
 
 @app.route('/authorization',methods=['GET'])
 def authorization():
-    if request.args['button'] == 'Войти':
+    if ((request.args['button'] == 'Войти')&(request.args['login']!='')&(request.args['password']!='')):
         login = request.args['login']
         password = request.args['password']
         auth = []
@@ -275,9 +288,11 @@ def authorization():
         else:
             return render_template('authrization.html', message="Неверные данные")
     elif request.args['button'] == 'Регистрация':
-        return render_template('registration.html')
+        return render_template('registration.html',message="")
     elif request.args['button'] == 'Вход':
-        return render_template('authorization.html')
+        return render_template('authorization.html',message="")
+    else:
+        return render_template('authorization.html',message="Не все поля заполнены!")
 
 
 @app.route("/operator", methods=['GET'])
@@ -294,7 +309,7 @@ def operator_action():
         return render_template('main_page.html')
 
 
-@app.route("/add_offer", methods=['GET'])
+@app.route("/add_offer", methods=['CET'])
 def add_offer():
     period = int(request.args['period'])
     percent = float(request.args['percent'])

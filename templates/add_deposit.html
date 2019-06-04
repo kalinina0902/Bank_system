@@ -22,6 +22,7 @@
 	<tr>
 	<th colspan = "2" align="center"><h1> Открытие вклада </h1></th>
 	</tr>
+	<tr><th colspan= '3' align = "center"><h2>{{message}}</h2></th></tr>
 	<tr><td><div class='form-row'><label >Предложения по вкладам</label></div></td>
 	<td align="right"><div class='form-row'><select name="chooseoffer" required>
 				<option disabled selected value="null">(Не выбрано)</option>
@@ -30,7 +31,7 @@
 				{% endfor %}
 	</select></div></td>		
 	</tr>
-	<tr><td><div class='form-row'><label for='form_accountto'>Счёт списания</label></div></td>
+	<tr><td><div class='form-row'><label>Счёт списания</label></div></td>
 		<td align="right"><div class='form-row'><select name="accountfrom" required>
                     <option disabled selected value="null">(Не выбрано)</option>
                     {%for item in accounts%}
